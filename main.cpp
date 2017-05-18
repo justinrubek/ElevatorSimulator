@@ -104,6 +104,6 @@ int runElevatorSimulation(std::string peopleFile = "")
 int main()
 {
   std::srand(time(NULL));
-  std::cout << "Took " << runElevatorSimulation("") << " actions to complete." << std::endl;
+  std::cout << "Took " << runElevatorSimulation("people.txt") << " actions to complete." << std::endl;
   return 0;
 }

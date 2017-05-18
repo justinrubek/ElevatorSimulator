@@ -61,6 +61,10 @@ void Elevator::dismissPassengers()
     if (passenger.getDestination() == currentFloor)
     {
       // Remove the passenger from the elevator
+      
+      if (passenger.getName() == "Megan")
+        std::cout << "Megan found" << std::endl;
+      
       std::cout << passenger.getName() << " exited the elevator at floor " << currentFloor << std::endl;
       passengers.erase(passengers.begin() + i);
       

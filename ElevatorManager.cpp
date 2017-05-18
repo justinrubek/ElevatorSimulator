@@ -46,7 +46,7 @@ void ElevatorManager::addPerson(Person p, int floor)
     Request request = p.makeRequest(floor);
     
     building.getFloorPtr(floor)->addPerson(p, request.direction);
-    //requests.push_back(request);
+    requests.push_back(request);
   }
   else
     std::cerr << "Attempted to add person to floor that does not exist in building" << std::endl;

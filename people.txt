@@ -1,0 +1,17 @@
+Jenna,7,1
+Skylar,0,3
+London,3,2
+Hayley,1,6
+Justin,8,0
+Jerry,5,1
+Pablo,1,9
+Colby,5,7
+Megan,7,1
+FutureBoyfriend,3,7
+Tatum,1,5
+V,9,3
+Eren,8,3
+Rey,2,5
+Freeman,1,9
+Gordon,8,3
+Alyx,2,3
