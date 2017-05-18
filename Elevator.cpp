@@ -53,25 +53,16 @@ bool Elevator::empty()
 
 void Elevator::dismissPassengers()
 {
-  int i = 0;
-  // Maybe store a vector of all people removed and return it to add to arrivals
-  for (auto passenger : passengers)
+  for (int i = 0; i < passengers.size(); ++i)
   {
-    // If the passenger is on the right floor
-    if (passenger.getDestination() == currentFloor)
+    if(passengers[i].getDestination() == currentFloor)
     {
-      // Remove the passenger from the elevator
-      
-      if (passenger.getName() == "Megan")
-        std::cout << "Megan found" << std::endl;
-      
-      std::cout << passenger.getName() << " exited the elevator at floor " << currentFloor << std::endl;
+      std::cout << passengers[i].getName() << " exited the elevator at floor " << currentFloor << std::endl;
       passengers.erase(passengers.begin() + i);
-      
+      i--; // passengers is one smaller now, decrement index so it doesn't change for next iteration
     }
-    else
-      i++;
   }
+ 
 }
 
 bool Elevator::hasSpace()
