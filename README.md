@@ -11,5 +11,5 @@ direction as the elevator.
   * Have the elevator find an efficient path to transport passengers
   
 ## Known problems
-  * Sometimes passengers decide to get off the elevator twice without getting on twice
+  * ~~Sometimes passengers decide to get off the elevator twice without getting on twice~~
   

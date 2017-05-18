@@ -62,17 +62,17 @@ void Elevator::dismissPassengers()
       i--; // passengers is one smaller now, decrement index so it doesn't change for next iteration
     }
   }
- 
 }
 
-bool Elevator::hasSpace()
-{
-  return passengers.size() < maxPassengers;
-}
 
 void Elevator::setDirection(Direction direction)
 {
   this->status = direction;
+}
+
+bool Elevator::hasSpace()
+{
+    return passengers.size() < maxPassengers;
 }
 
 
