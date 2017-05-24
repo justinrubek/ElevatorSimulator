@@ -38,11 +38,11 @@ void loadPeople(std::string fileName, ElevatorManager& sim)
   }
 }
 
-std::string generateName()
+std::string generateName(int length = 5)
 {
   std::string name;
   
-  for (int i = 0; i < 5; ++i)
+  for (int i = 0; i < length; ++i)
   {
     char c = 'A' + randomUpTo(26);
     name += c;
@@ -72,7 +72,7 @@ void promptToAddPeople(ElevatorManager& sim)
     int startingFloor = randomUpTo(maxFloor);
     int destinationFloor = randomUpTo(maxFloor);
     
-    while (startingFloor == destinationFloor)
+    while (startingFloor == destinationFloor) // Make sure that they don't overlap
       startingFloor = randomUpTo(maxFloor);
     
     std::cout << "New Person: " << name << " starting at floor " << startingFloor << " and going to floor " << destinationFloor << std::endl;
@@ -81,6 +81,7 @@ void promptToAddPeople(ElevatorManager& sim)
     sim.addPerson(person, startingFloor);
   }
 }
+
 int runElevatorSimulation(std::string peopleFile = "")
 {
   ElevatorManager sim;

@@ -8,26 +8,22 @@
 #include <sstream>
 #include <vector>
 
-template<typename Out>
-void split(const std::string &s, char separator, Out result)
+std::vector<std::string> split(const std::string &s, char delim)
 {
+  std::vector<std::string> items;
+
   std::stringstream ss;
   ss.str(s);
   std::string item;
-  
-  while (std::getline(ss, item, separator))
-  {
-    *(result) = item;
-    result++;
-  }
-}
 
-std::vector<std::string> split(const std::string &s, char separator)
-{
-  std::vector<std::string> items;
-  split(s, separator, std::back_inserter(items));
+  while (std::getline(ss, item, delim))
+  {
+    items.push_back(item);
+  }
+
   return items;
 }
+
 
 int stringToInt(std::string s)
 {
