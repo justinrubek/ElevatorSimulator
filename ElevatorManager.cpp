@@ -11,7 +11,7 @@ ElevatorManager::ElevatorManager(int maxFloor)
   this->minFloor = 0;
   this->maxFloor = maxFloor;
   
-  requests = std::vector<Request>();
+  //requests = std::vector<Request>();
   
   //elevator = new Elevator(5, 0);
   
@@ -25,7 +25,7 @@ ElevatorManager::~ElevatorManager()
 
 void ElevatorManager::addRequest(Request r)
 {
-  this->requests.push_back(r);
+  this->requests.addRequest(r);
 }
 
 void ElevatorManager::addRequest(int currentFloor, int destinationFloor)
@@ -46,7 +46,7 @@ void ElevatorManager::addPerson(Person p, int floor)
     Request request = p.makeRequest(floor);
     
     building.getFloorPtr(floor)->addPerson(p, request.direction);
-    requests.push_back(request);
+    requests.addRequest(request);
   }
   else
     std::cerr << "Attempted to add person to floor that does not exist in building" << std::endl;
@@ -57,6 +57,18 @@ void ElevatorManager::removeRequest(int floor)
   // Remove the first request to the current floor
   
 }
+
+/*
+void ElevatorManager::moveElevator()
+{
+  if (!elevator.hasSpace() && )
+
+  if (elevator.getCurrentFloor() == minFloor)
+    elevator.setDirection(Direction::up);
+  else if (elevator.getCurrentFloor() == maxFloor - 1)
+    elevator.setDirection(Direction::down);
+}
+*/
 
 void ElevatorManager::moveElevator()
 {
@@ -88,6 +100,7 @@ void ElevatorManager::moveElevator()
   else if (elevator.getCurrentFloor() == maxFloor - 1)
     elevator.setDirection(Direction::down);
 }
+
 
 void ElevatorManager::update()
 {

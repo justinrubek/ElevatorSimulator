@@ -95,7 +95,6 @@ int runElevatorSimulation(std::string peopleFile = "")
   while (!sim.solved())
   {
     sim.update();
-    //std::cout << ++count << std::endl;
     count++;
   }
 

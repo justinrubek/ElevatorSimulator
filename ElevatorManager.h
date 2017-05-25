@@ -11,6 +11,7 @@
 #include "Direction.h"
 #include "Floor.h"
 #include "Building.h"
+#include "Requests.h"
 
 class ElevatorManager
 {
@@ -35,8 +36,9 @@ class ElevatorManager
   private:
     Elevator elevator;
     Building building;
-    
-    std::vector<Request> requests;
+
+    Requests requests;
+    //std::vector<Request> requests;
     
     int minFloor;
     int maxFloor;
