@@ -15,9 +15,10 @@ class Requests
 
     void addRequest(Request request);
 
-    bool hasRequests(Direction direction);
+    void removeRequests(Direction direction, int currentFloor); // Removes all requests in the current direction at the current floor
+    bool hasRequests(Direction direction);                      // Checks if there are any requests in the current direction
 
-    std::vector<Request>::iterator getNext(Direction direction, int currentFloor);
+    std::vector<Request>::iterator getNext(Direction direction, int currentFloor);  // Returns the next request in the current direction
 
   private:
     std::map<Direction, std::vector<Request>> requests;

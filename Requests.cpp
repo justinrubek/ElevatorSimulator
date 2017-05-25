@@ -53,3 +53,15 @@ bool Requests::hasRequests(Direction direction)
 {
   return !requests[direction].empty();
 }
+
+void Requests::removeRequests(Direction direction, int currentFloor)
+{
+  for (int i = 0; i < requests[direction].size(); ++i)
+  {
+    if (requests[direction][i].destinationFloor == currentFloor) // The request was to go to this floor
+    {
+      requests[direction].erase(requests[direction].begin() + i); // Remove the request from the vector
+      i--; // Decrement to account for it being erased
+    }
+  }
+}
