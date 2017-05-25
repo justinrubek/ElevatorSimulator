@@ -25,6 +25,8 @@ class Elevator
     bool hasSpace();
     
     // Change the position of the elevator
+    void move();
+    void move(Direction direction);
     void moveUp();
     void moveDown();
     //void move(); // Moves the elevator either up or down depending on last status

@@ -75,6 +75,19 @@ bool Elevator::hasSpace()
     return passengers.size() < maxPassengers;
 }
 
+void Elevator::move(Direction direction)
+{
+  if (direction == Direction::up)
+    moveUp();
+  else if (direction == Direction::down)
+    moveDown();
+}
+
+void Elevator::move()
+{
+  move(getStatus());
+}
+
 
 
 

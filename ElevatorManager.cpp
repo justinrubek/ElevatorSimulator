@@ -58,18 +58,28 @@ void ElevatorManager::removeRequest(int floor)
   
 }
 
-/*
+
 void ElevatorManager::moveElevator()
 {
-  if (!elevator.hasSpace() && )
-
   if (elevator.getCurrentFloor() == minFloor)
     elevator.setDirection(Direction::up);
   else if (elevator.getCurrentFloor() == maxFloor - 1)
     elevator.setDirection(Direction::down);
-}
-*/
 
+  Direction dir = elevator.getStatus();
+  if (requests.hasRequests(elevator.getStatus()) && elevator.hasSpace()) // There are more requests in the current direction that we can grab
+  {
+    //int nextFloor = requests.getNext(dir, elevator.getCurrentFloor())->currentFloor;
+    elevator.move(dir);
+  }
+  else if (!elevator.hasSpace()) // No more requests in our direction, but we can't grab any of them anyway
+  {
+    elevator.move();
+  }
+}
+
+
+/*
 void ElevatorManager::moveElevator()
 {
   switch (elevator.getStatus())
@@ -100,13 +110,15 @@ void ElevatorManager::moveElevator()
   else if (elevator.getCurrentFloor() == maxFloor - 1)
     elevator.setDirection(Direction::down);
 }
-
+*/
 
 void ElevatorManager::update()
 {
   addPassengersFromFloor();
   moveElevator();
   elevator.dismissPassengers();
+  requests.removeRequests(elevator.getStatus(), elevator.getCurrentFloor());
+
 }
 
 void ElevatorManager::addPassengersFromFloor()
